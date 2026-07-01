@@ -26,6 +26,21 @@ public class SupplierService {
                 .orElseThrow();
     }
 
+    public Supplier updateSupplier(Long id, Supplier supplier) {
+
+        Supplier existingSupplier = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Supplier not found"));
+
+        existingSupplier.setName(supplier.getName());
+        existingSupplier.setContactPerson(supplier.getContactPerson());
+        existingSupplier.setPhone(supplier.getPhone());
+        existingSupplier.setEmail(supplier.getEmail());
+        existingSupplier.setNotes(supplier.getNotes());
+
+        return repository.save(existingSupplier);
+    }
+
+	 
 
 
 
