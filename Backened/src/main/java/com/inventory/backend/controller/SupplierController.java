@@ -2,6 +2,7 @@ package com.inventory.backend.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,5 +41,12 @@ public Supplier saveSupplier(@RequestBody Supplier supplier) {
   public Supplier updateSupplier(@PathVariable Long id,
                                  @RequestBody Supplier supplier) {
       return service.updateSupplier(id, supplier);
+  }
+  @DeleteMapping("/{id}")
+  public String deleteSupplier(@PathVariable Long id) {
+
+      service.deleteSupplier(id);
+
+      return "Supplier deleted successfully";
   }
 }

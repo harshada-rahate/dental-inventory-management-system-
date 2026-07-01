@@ -40,8 +40,9 @@ public class SupplierService {
         return repository.save(existingSupplier);
     }
 
-	 
-
+    public void deleteSupplier(Long id) {
+        repository.deleteById(id);
+    }
 
 
 }
